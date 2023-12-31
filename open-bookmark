@@ -1,0 +1,14 @@
+#! /usr/bin/env sh
+
+
+bookmarks=~/repos/youal/bookmarks/bookmarks
+
+lines="$(wc -l "$bookmarks" | awk '{print $1}')"
+bookmark="$(grep -Ev '^#|^$' "$bookmarks" | dmenu -i -l "$lines" | awk '{print $1}')"
+[ -n "$bookmark" ] && qutebrowser "$bookmark" &
+
+# surf
+
+# Strugle with Github
+# dillo
+# netsurf-gtk3
